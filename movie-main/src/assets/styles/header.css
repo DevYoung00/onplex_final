@@ -1,0 +1,178 @@
+/* ty2 : 흰배경용 헤더 */
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 220px;
+  background-color: black;
+}
+.header.ty2 {
+  background-color: white;
+}
+
+/* staff only로 이동 */
+.header .staff_only_block {
+  position: absolute;
+  width: 1024px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+  z-index: 3;
+}
+.header .staff_only {
+  position: absolute;
+  color: white;
+  font-family: 'a로케트';
+  font-size: 14px;
+}
+.header.ty2 .staff_only {
+  color: gray;
+}
+.header .staff_only:hover,
+.header .staff_only:active {
+  color: rgb(255, 217, 0);
+}
+
+/* 로고 설정 */
+
+.header .logo {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  margin-left: -109px;
+  z-index: 1;
+}
+.header .logo img {
+  display: block;
+  width: 200px;
+}
+
+/* 로그인, 회원가입 메뉴 */
+.header .gnb {
+  position: relative;
+  width: 1024px;
+  height: 180px;
+  margin: 0 auto;
+  border-bottom: 1px solid #b9b9b9;
+}
+.header .gnb .g_menu {
+  position: absolute;
+  right: 0px;
+  top: 182px;
+  margin-top: 0;
+  z-index: 3;
+  margin-right: 10px;
+}
+.header .gnb .g_menu > li {
+  float: left;
+  margin-left: 25px;
+}
+.header .gnb .g_menu > li > a {
+  height: 38px;
+  line-height: 38px;
+  display: block;
+  font-size: 16px;
+  color: white;
+  font-weight: normal;
+  font-family: 'a로케트';
+}
+.header.ty2 .gnb .g_menu > li > a {
+  color: black;
+}
+
+.header .gnb .g_menu > li > a:hover,
+.header .gnb .g_menu > li a.router-link-exact-active {
+  color: rgb(255, 217, 0);
+}
+
+/* 메인 메뉴 */
+#nav {
+  width: 1024px;
+  margin: auto;
+  margin-top: -40px;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  margin-left: -512px;
+}
+#nav > ul > li {
+  display: inline-block;
+  vertical-align: top;
+}
+#nav > ul > li > a {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  z-index: 2;
+  padding: 0 32px;
+  font-size: 24px;
+  letter-spacing: 0.1em;
+  font-family: 'a옛날사진관4', Arial, sans-serif;
+  font-weight: bold;
+  color: #656565;
+}
+#nav > ul > li > div {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 40px;
+  height: 38px;
+  text-align: center;
+  background-color: #b9b9b9;
+  margin: 0 auto;
+}
+.header.ty2 #nav > ul > li > div {
+  background-color: rgb(235, 235, 235);
+}
+#nav > ul > li > div > ul {
+  opacity: 0;
+  display: inline-block;
+}
+#nav > ul > li > div > ul > li {
+  float: left;
+  margin: 0 10px;
+}
+#nav > ul > li > div > ul > li > a {
+  display: block;
+  height: 38px;
+  line-height: 38px;
+  padding: 0 5px;
+  color: #666;
+  z-index: 2;
+}
+
+#nav > ul > li > a:focus,
+#nav > ul > li > a.router-link-exact-active {
+  color: white;
+  height: 41px;
+  border-bottom: 3px solid #ff1744;
+}
+#nav > ul > li:hover > a {
+  height: 40px;
+  border-bottom: 2px solid #ff1744;
+  color: white;
+}
+#nav > ul > li:hover > div {
+  display: block;
+}
+#nav > ul > li:hover > div > ul {
+  opacity: 1;
+}
+#nav > ul > li:hover > div > ul > li > a:hover {
+  color: black;
+}
+.header.ty2 #nav > ul > li:hover > a,
+.header.ty2 #nav > ul > li > a:focus,
+.header.ty2 #nav > ul > li > a.router-link-exact-active {
+  color: black;
+}
+
+/* 스크롤 할때 헤더 고정되게 만들어야 함 
+    로고 빼고 메뉴만 보이게 반투명하게 만들 예정..인데 그럴려면 j쿼리 문법 갖다가 어느 지점 이상 스크롤 하면 addClass로 fixed 클래스 추가하고
+    css에다가 #nav.fixed 설정해주면 됨 근데 html 파일에서 진심 몇번을 시도해봤는데 안됐음.. 
+    vue 문법 찾아서 써봐야겠다.. 이건 일단 나중에..
+*/

@@ -1,0 +1,190 @@
+/* v 0.8 수정내용 : 배경 흰색으로 바꿈. 흰 배경에 맞춰서 전체적으로 색깔 조정 */
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* common */
+html,
+body,
+template,
+#app {
+  /* overflow: hidden; */
+  height: auto;
+  overflow-x: auto;
+  overflow-y: visible;
+  font-family: 'GmarketSansMedium';
+}
+
+/* h2{
+  margin-bottom: 20px;
+}
+body {
+  background-color: #000000;
+  color: #ffffff;
+ padding-top:60;}
+
+
+ #app {
+  background-color: #000000;
+  min-width: 1024px;
+  margin:0;
+  padding:0;
+} */
+
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding-top: 220px;
+}
+img {
+  border: none;
+  vertical-align: top;
+}
+ul {
+  list-style: none;
+}
+a,
+a.router-link,
+a:link,
+a:visited,
+a:active,
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+/* 폰트 설정도 추가해야함 (웹폰트 좀 찾아보고 고민해보겠음..)*/
+
+#app {
+  background-color: white;
+  min-width: 1024px;
+  margin: 0;
+  padding: 0;
+}
+/* 
+.home, .community, .recommend{
+  margin: 2rem;
+}
+
+.home, .recommend {
+  margin-left: 5rem;
+  margin-right: 5rem;
+} */
+
+/* .tinder-div {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* textarea {
+  padding: 10px;
+  width: 1000px;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
+} */
+
+/* auth */
+
+.accounts_form {
+  position: relative;
+  width: 1024px;
+  height: auto;
+  padding-top: 60px;
+  padding-bottom: 40px;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.authForm {
+  display: block;
+  width: 400px;
+  /* text-align: left; */
+  margin: 0 auto;
+}
+
+.authForm.join {
+  display: block;
+  width: 800px;
+  text-align: left;
+  margin: 0 auto;
+  color: black;
+}
+
+.authForm > h2 {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.authForm input {
+  margin: 10px 0;
+}
+
+.submitBtn {
+  color: black;
+  font-size: 18px;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.authForm a {
+  text-decoration: none;
+  color: white;
+}
+/* login */
+.loginAddOn {
+  color: black;
+  margin: 30px auto;
+}
+
+.loginAddOn > span {
+  margin-right: 10px;
+}
+
+.signupInput select {
+  width: 100px;
+  padding-left: 30px;
+  border-radius: 5px;
+  border: gray solid 1px;
+  background-color: white;
+  color: black;
+}
+
+.signupInput label > span {
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.signupInput label > input {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+/* community */
+/*.review-list-inset {
+  padding-top: 2rem;
+}
+
+.v-expansion-panel input, textarea{
+  color: white;
+}
+
+/* input */
+.form-control {
+  width: 280px;
+  margin-right: 10px;
+}
