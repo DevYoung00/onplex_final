@@ -6,7 +6,7 @@
       <div> ONPLEX {{staff_info.branch_name}}점&nbsp;{{staff_info.depart_name}}부</div>
       <div>
         <v-select :items="months" prepend-icon="mdi-calendar-check" solo v-model="select_month" style="width:150px;"></v-select>
-        <!-- <span> 의 우수 직원은 {{staff_list[getBest(select_month)].staff_name}} </span> -->
+        <span> 의 우수 직원은 {{getBest(select_month)}} 입니다. </span>
         <!-- {{getBest(select_month)}} {{select_month}} {{getMonth(rank[1].dates) === select_month}} -->
       </div>
     </div>
@@ -113,23 +113,43 @@ export default {
 
       return year + "-" + month + "-" + day
     },
-    getMonth(val){
+    getMonthstr(val){
         let valarr = val.split("-")
         return valarr[1] + "월"
     },
+    whoBest(id) {
+        const coworkarr = this.staff_list
+        for(let i=0; i<coworkarr.length; i++) {
+            if(coworkarr[i].staff_id === id) {
+              return i
+            }
+        }
+    },
     getBest(date) {
       const rankarr = this.rank
+      const coworkarr = this.staff_list
       let max = 0
       let idx = 0
+      let arr = []
+      let rankstr = ''
       for (let i=0; i<rankarr.length; i++){
-          if (getMonth(rankarr[i].dates) === date){
+          if (this.getMonthstr(rankarr[i].dates) === date){
               if(max < rankarr[i].recnt) {
                 max = rankarr[i].recnt
                 idx = i
+              } else if (max === rankarr[i].recent) {
+                  arr.push(rankarr[i].recommend_id)
               }
           }
       }
-      return idx
+      if(arr.length > 1) {
+          for(let i=0; i<arr.length; i++){
+             rankstr += coworkarr[this.whoBest(rankarr[arr[i]].recommend_id)].staff_name + coworkarr[this.whoBest(rankarr[arr[i]].recommend_id)].position_name+"님,"
+          }
+          return rankstr.slice(0, rankstr.length-1)
+      } else {
+          return coworkarr[this.whoBest(rankarr[idx].recommend_id)].staff_name + coworkarr[this.whoBest(rankarr[idx].recommend_id)].position_name + "님"
+      }
     }
   }
 

@@ -140,8 +140,8 @@ export const getStoreDetail = async (id) => {
 export const getCoworker = async (id) => {
   return db
     .execute(
-      `select staff_id, staff_name, branch_name, depart_name, position_name from ((staff natural join branch_office) natural join department) natural join pposition where branch_id=(select branch_id from staff where staff_id=2) and depart_id=(select depart_id from staff where staff_id=2) and position_id=(select position_id from pposition natural join staff where staff_id=?);`,
-      [id]
+      `select staff_id, staff_name, branch_name, depart_name, position_name from ((staff natural join branch_office) natural join department) natural join pposition where branch_id=(select branch_id from staff where staff_id=?) and depart_id=(select depart_id from staff where staff_id=?) and position_id=(select position_id from pposition natural join staff where staff_id=?)`,
+      [id, id, id]
     )
     .then((result) => result[0]);
 };
@@ -149,8 +149,8 @@ export const getCoworker = async (id) => {
 export const getRecommend = async (id) => {
   return db
     .execute(
-      `select eval_id, staff_id, depart_id, branch_id, recommend_id, dates from staff_evaluation where branch_id=(select branch_id from branch_office natural join staff where staff_id=2) and depart_id=(select depart_id from staff natural join department where staff_id=?)`,
-      [id]
+      `select eval_id, staff_id, depart_id, branch_id, recommend_id, dates from staff_evaluation where branch_id=(select branch_id from branch_office natural join staff where staff_id=?) and depart_id=(select depart_id from staff natural join department where staff_id=?)`,
+      [id, id]
     )
     .then((result) => result[0]);
 };

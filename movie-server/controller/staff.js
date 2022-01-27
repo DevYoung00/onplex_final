@@ -158,8 +158,15 @@ export const getStoreList = async (req, res) => {
 // 추천 정보 불러오기
 export const getRecommend = async (req, res) => {
   const staff = await staffRepository.getMypage(req.staffId);
-  const coworker = await staffRepository.getCoworker(req.staffId);
-  const recommend = await staffRepository.getRecommend(req.staffId);
+  const coworker = await staffRepository.getCoworker(
+    req.staffId,
+    req.staffId,
+    req.staffId
+  );
+  const recommend = await staffRepository.getRecommend(
+    req.staffId,
+    req.staffId
+  );
   const rank = await staffRepository.getRank(req.staffId);
   res.send({
     success: true,

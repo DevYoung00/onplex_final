@@ -26,7 +26,8 @@ router.post(
     // .isLength({ min: 8, max: 18}),
     body('depart', 'depart must be not blank').notEmpty().trim(),
     // .isLength({ min: 8, max: 18}),
-
+    body('position', 'position must be not blank').notEmpty().trim(),
+    // .isLength({ min: 8, max: 18}),
     validate,
   ],
   isAuthCheckStaff,
